@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CreditCardTest {
     
     @Test
-    public void allowAssignLimitToCard(){
+    public void assignCreditLimitToCard() {
         CreditCard card = new CreditCard();
         
         card.assignLimit(2000);
@@ -15,9 +15,20 @@ public class CreditCardTest {
     }
     
     @Test
-    public void canBlockCreditCard(){
+    public void canBlockCredsitCard() {
         CreditCard card = new CreditCard();
         card.block();
         Assert.assertTrue(card.isBlocked());
     }
+
+    public void withdrawDecreaseAvailableFunds() {
+        CreditCard card = new CreditCard();
+        
+        card.assignLimit(2000);
+        card.withdraw(1000);
+        
+        Assert.assertTrue(card.getBalance() == 1000);
+    }
+    
 }
+
