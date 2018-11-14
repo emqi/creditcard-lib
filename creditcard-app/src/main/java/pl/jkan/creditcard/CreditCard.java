@@ -27,6 +27,8 @@ class CreditCard {
     }
     
     public void repay(double money) {
+        //probably it can be done better, but it's fine 
+        // byle hajs się zgadzał
         balance = balance + money;
     }
     
