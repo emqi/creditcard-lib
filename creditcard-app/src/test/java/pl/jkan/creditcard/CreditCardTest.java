@@ -15,6 +15,11 @@ public class CreditCardTest {
     }
     
     @Test
+    public void cantWithdrawWhenCantAfford() {
+        
+    }
+    
+    @Test
     public void canBlockCredsitCard() {
         CreditCard card = new CreditCard();
         card.block();
@@ -30,5 +35,15 @@ public class CreditCardTest {
         Assert.assertTrue(card.getBalance() == 1000);
     }
     
-}
+    @Test
+    public void repayCredit() {
+        CreditCard card = new CreditCard();
+        card.assignLimit(1000);
 
+        card.withdraw(500);
+        card.withdraw(200);
+        card.repay(400);
+
+        Assert.assertTrue(card.getBalance() == 700);
+    }
+}
